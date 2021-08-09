@@ -60,7 +60,7 @@ public class MainServlet extends HttpServlet {
             return;
         }
         if (path.matches("/api/posts/\\d+")) {
-            final var id = Long.parseLong(path.substring(path.lastIndexOf("/")));
+            final var id = Long.parseLong(path.substring(path.lastIndexOf("/") + 1));
             controller.getById(id, resp);
             return;
         }
@@ -77,9 +77,9 @@ public class MainServlet extends HttpServlet {
         handleNotFound(resp);
     }
 
-    private void handleDelete(String path, HttpServletRequest req, HttpServletResponse resp) {
+    private void handleDelete(String path, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         if (path.matches("/api/posts/\\d+")) {
-            final var id = Long.parseLong(path.substring(path.lastIndexOf("/")));
+            final var id = Long.parseLong(path.substring(path.lastIndexOf("/") + 1));
             controller.removeById(id, resp);
             return;
         }
