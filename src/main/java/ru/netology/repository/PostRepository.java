@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
-// Stub
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class PostRepository {
 
     private ConcurrentHashMap<Long, Post> posts = new ConcurrentHashMap<>();
